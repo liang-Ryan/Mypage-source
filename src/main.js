@@ -1,16 +1,21 @@
-// 样式
+// css
 import './assets/index.css'
 
-// 通用
+// app
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-
 import App from './App.vue'
-import router from './router'
-
 const app = createApp(App)
 
-app.use(createPinia())
+// router
+import router from './router'
 app.use(router)
+
+// store
+import { createPinia } from 'pinia'
+app.use(createPinia())
+
+// components
+import { components } from './components'
+app.use(components)
 
 app.mount('#app')

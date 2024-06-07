@@ -17,7 +17,7 @@ module.exports = {
       {
         singleQuote: true, // 单引号
         semi: false, // 无分号
-        printWidth: 80, // 每行宽度至多80字符
+        printWidth: 100, // 每行宽度至多80字符
         trailingComma: 'none', // 对象、数组最后删除逗号
         endOfLine: 'auto' // 换行符号不限制（解决win mac不一致）
       }
