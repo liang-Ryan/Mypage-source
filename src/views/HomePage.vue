@@ -1,7 +1,6 @@
 <script setup>
 import { useNoteStore } from '@/stores'
 import { useProjectStore } from '@/stores/modules/Project'
-import { useRouter } from 'vue-router'
 
 // =============================
 // store
@@ -11,16 +10,11 @@ const noteStore = useNoteStore()
 const projectStore = useProjectStore()
 
 // =============================
-// 页面跳转
+// 项目页面跳转
 // =============================
 
-const router = useRouter()
-const ProjectUrl = (item) => {
-  if (item.url) {
-    router.push(`${item.url}`)
-  } else {
-    window.location.href = item.externalUrl
-  }
+const changeUrl = (url) => {
+  window.location.href = url
 }
 
 // =============================
@@ -44,13 +38,13 @@ const ProjectUrl = (item) => {
       </div>
     </div>
     <div class="home-item">
-      <div class="home-item-header">线上演示</div>
+      <div class="home-item-header">练习作品</div>
       <div class="home-item-content">
         <a
           class="content-item"
           v-for="item in projectStore.projectList"
           :key="item.name"
-          @click="ProjectUrl(item)"
+          @click="changeUrl(item.url)"
         >
           <span>{{ item.name }}</span>
         </a>
