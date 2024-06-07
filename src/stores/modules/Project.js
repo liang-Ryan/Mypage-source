@@ -7,9 +7,9 @@ export const useProjectStore = defineStore('projectStore', () => {
   // =============================
 
   const projectList = ref([
-    { name: '移动端智慧商城项目', url: 'smart-shopping' },
-    { name: '大事件文章项目', url: 'big-event-management' },
-    { name: '小兔鲜电商项目', url: 'rabbit-shopping' }
+    { name: '移动端智慧商城项目', url: '/SmartShopping/index.html' },
+    { name: '大事件文章项目', url: '/BigEventManagement/index.html' },
+    { name: '小兔鲜电商项目', url: '/RabbitShopping/index.html' }
   ])
 
   //=============================
