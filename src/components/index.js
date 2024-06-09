@@ -1,7 +1,9 @@
 import Aside from './Aside.vue'
 import Nav from './Nav.vue'
 import Paragraph from './Paragraph.vue'
-import Content from './Content.vue'
+
+import Tables from './Tables.vue'
+import Cell from './Cell.vue'
 
 // =============================
 // 组件全局注册
@@ -13,6 +15,7 @@ export const components = {
     app.component('Aside', Aside)
     app.component('Nav', Nav)
     app.component('Paragraph', Paragraph)
-    app.component('Content', Content)
+    app.component('Tables', Tables)
+    app.component('Cell', Cell)
   }
 }

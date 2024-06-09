@@ -1,25 +1,24 @@
 <script setup>
 defineProps({
-  title: {
-    type: String,
-    require: false
-  },
-  subtitle: {
-    type: [String, Number],
-    require: false
-  },
+  title: String,
+  subtitle: String,
   content: [String, Object]
 })
 </script>
 
 <template>
   <div>
+    <!-- 标题 -->
     <h1 class="title" :id="title" v-if="title">{{ title }}</h1>
     <h2 class="subtitle" :id="subtitle" v-if="typeof subtitle === 'string'">{{ subtitle }}</h2>
 
+    <!-- 正文 -->
     <div v-for="(item, key) in content" :key="key">
-      <Content class="content" v-if="typeof key === 'number'" :content="content"></Content>
-      <Paragraph :subtitle="key" :content="item" v-else></Paragraph>
+      <div v-if="typeof key === 'number'">
+        <span v-if="typeof item === 'string'" v-html="item"></span>
+        <Tables class="content" v-else :content="item"></Tables>
+      </div>
+      <Paragraph v-else :subtitle="key" :content="item"></Paragraph>
     </div>
   </div>
 </template>
