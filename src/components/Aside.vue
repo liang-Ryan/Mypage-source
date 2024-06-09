@@ -1,25 +1,14 @@
 <script setup>
-import { useNoteStore } from '@/stores'
-
-// =============================
-// store
-// =============================
-
-const noteStore = useNoteStore()
-
-// =============================
+defineProps({
+  titlelist: Object
+})
 </script>
 
 <template>
   <aside>
     <div class="return" @click="$router.push('/')"><div class="return-button">返回首页</div></div>
     <div class="aside-content">
-      <a
-        class="aside-item"
-        v-for="(item, key) in noteStore.noteList[$route.params.id]"
-        :key="key"
-        :href="'#' + key"
-      >
+      <a class="aside-item" v-for="(item, key) in titlelist" :key="key" :href="'#' + key">
         {{ key }}
       </a>
     </div>

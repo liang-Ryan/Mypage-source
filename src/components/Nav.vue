@@ -1,12 +1,13 @@
 <script setup>
 import { ref } from 'vue'
-import { useNoteStore } from '@/stores'
 
 // =============================
-// store
+// state
 // =============================
 
-const noteStore = useNoteStore()
+defineProps({
+  notelist: Object
+})
 
 // =============================
 // 滚轮事件
@@ -25,7 +26,7 @@ const scrollEvent = (deltaY) => {
     <div
       class="nav-item"
       :class="{ active: $route.path === `/note/${key}` }"
-      v-for="(item, key) in noteStore.noteList"
+      v-for="(item, key) in notelist"
       :key="key"
       @click="$router.push(`/note/${key}`)"
     >

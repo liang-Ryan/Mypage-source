@@ -14,10 +14,10 @@ const noteStore = useNoteStore()
   <header></header>
 
   <div class="note-contain">
-    <Aside></Aside>
+    <Aside :titlelist="noteStore.noteList[$route.params.id]"></Aside>
 
     <div class="note-article">
-      <Nav></Nav>
+      <Nav :notelist="noteStore.noteList"></Nav>
       <article>
         <Paragraph
           v-for="(item, key) in noteStore.noteList[$route.params.id]"
