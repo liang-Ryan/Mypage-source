@@ -40,7 +40,7 @@ export const useNoteStore = defineStore('NoteStore', () => {
                   ['git add 文件名', '暂存指定文件'],
                   ['git add .', '暂存所有改动的文件']
                 ],
-                '文件标识',
+                '<br>文件标识',
                 [
                   ['未跟踪', 'U', '新文件 / 被移除过的文件。未被git保存过'],
                   ['已跟踪', 'A', 'git第一次保存的文件'],
@@ -98,7 +98,7 @@ export const useNoteStore = defineStore('NoteStore', () => {
                   ['git log --oneline', '查看当前分支历史记录的简要信息'],
                   ['git reflog --oneline', '查看所有分支历史记录的简要信息']
                 ],
-                '版本覆盖',
+                '<br>版本覆盖',
                 [
                   [
                     'git reset --soft 版本号',

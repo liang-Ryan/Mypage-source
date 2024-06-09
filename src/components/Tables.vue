@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  content: [String, Object]
+  content: Object
 })
 </script>
 
