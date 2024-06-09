@@ -21,7 +21,7 @@ const scrollEvent = (deltaY) => {
 </script>
 
 <template>
-  <div ref="navContent" class="nav-content" @wheel="scrollEvent($event.deltaY)">
+  <div ref="navContent" class="nav-content" @wheel.prevent="scrollEvent($event.deltaY)">
     <div
       class="nav-item"
       :class="{ active: $route.path === `/note/${key}` }"
