@@ -28,11 +28,11 @@ const changeUrl = (url) => {
       <div class="home-item-content">
         <div
           class="content-item"
-          v-for="item in noteStore.noteList"
-          :key="item.name"
-          @click="$router.push(`/note/${item.url}`)"
+          v-for="(item, key) in noteStore.noteList"
+          :key="key"
+          @click="$router.push(`/note/${key}`)"
         >
-          <span>{{ item.name }}</span>
+          <span>{{ key }}</span>
         </div>
         <!-- <div id="add" class="content-item"><span>添加新笔记</span></div> -->
       </div>
@@ -42,11 +42,11 @@ const changeUrl = (url) => {
       <div class="home-item-content">
         <a
           class="content-item"
-          v-for="item in projectStore.projectList"
-          :key="item.name"
+          v-for="(item, key) in projectStore.projectList"
+          :key="key"
           @click="changeUrl(item.url)"
         >
-          <span>{{ item.name }}</span>
+          <span>{{ key }}</span>
         </a>
       </div>
     </div>
