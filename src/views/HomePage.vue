@@ -71,8 +71,9 @@ const changeUrl = (url) => {
     .home-item-header {
       width: 200px;
       height: 60px;
-      background-color: blanchedalmond;
-      border: 3px solid bisque;
+      // background-color: rgba(161, 159, 253, 0.38);
+      background-color: rgb(10, 86, 153);
+      // border: 3px solid black;
       border-radius: 5px;
       display: flex;
       justify-content: center;
@@ -87,7 +88,8 @@ const changeUrl = (url) => {
       .content-item {
         width: 200px;
         height: 30px;
-        background-color: antiquewhite;
+        // background-color: rgb(10, 86, 153);
+        background-color: rgba(161, 159, 253, 0.38);
         border-radius: 5px;
         display: flex;
         justify-content: center;

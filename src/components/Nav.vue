@@ -63,7 +63,7 @@ const scrollEvent = (deltaY) => {
     cursor: pointer;
 
     &:hover {
-      box-shadow: 0px 0px 10px 1px black inset;
+      box-shadow: 0px 0px 10px 1px gray inset;
     }
   }
 
