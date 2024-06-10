@@ -27,7 +27,7 @@ aside {
     height: 30px;
     padding: 0 5px;
     border-radius: 10px;
-    background-color: rgb(255, 192, 74);
+    background-color: rgba(255, 241, 222, 0.2);
 
     display: flex;
     align-items: center;
@@ -35,7 +35,7 @@ aside {
     > .return-button {
       width: 100%;
       border-radius: 5px;
-      background-color: rgba(255, 235, 205, 0.5);
+      background-color: rgba(4, 0, 255, 0.38);
 
       display: flex;
       justify-content: center;
@@ -53,7 +53,7 @@ aside {
   .aside-content {
     padding: 10px 5px;
     border-radius: 10px;
-    background-color: rgb(255, 241, 222);
+    background-color: rgba(255, 241, 222, 0.2);
 
     display: flex;
     flex-direction: column;
@@ -65,13 +65,12 @@ aside {
     .aside-item {
       height: 30px;
       border-radius: 5px;
-      background-color: rgb(245, 217, 181);
+      background-color: rgb(10, 86, 153);
 
       display: flex;
       justify-content: center;
       align-items: center;
 
-      color: black;
       text-decoration: none;
 
       cursor: pointer;

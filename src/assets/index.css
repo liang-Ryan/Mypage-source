@@ -1,6 +1,10 @@
+* {
+  color: white;
+}
+
 body {
   margin: 0;
-  background-color: wheat;
+  background-color: rgb(8,19,33);
 }
 
 div {
@@ -15,7 +19,7 @@ table,th,td {
 
 table{
   margin: 5px 0;
-  background-color: rgb(239, 239, 239);
+  background-color: rgb(31,31,31);
 
   text-align: left;
   font-size: 13px;

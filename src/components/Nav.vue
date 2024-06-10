@@ -40,7 +40,7 @@ const scrollEvent = (deltaY) => {
   height: 30px;
   padding: 0 5px;
   border-radius: 10px;
-  background-color: rgb(255, 192, 74);
+  background-color: rgba(255, 241, 222, 0.2);
 
   display: flex;
   align-items: center;
@@ -52,7 +52,7 @@ const scrollEvent = (deltaY) => {
   .nav-item {
     min-width: 80px;
     border-radius: 5px;
-    background-color: rgba(255, 235, 205, 0.5);
+    background-color: rgba(4, 0, 255, 0.38);
 
     display: flex;
     flex-wrap: wrap;
@@ -63,12 +63,12 @@ const scrollEvent = (deltaY) => {
     cursor: pointer;
 
     &:hover {
-      box-shadow: 0px 0px 10px 1px gray inset;
+      box-shadow: 0px 0px 10px 1px black inset;
     }
   }
 
   .active {
-    background-color: rgb(117, 191, 255);
+    background-color: rgba(255, 0, 0, 0.72);
   }
 }
 </style>

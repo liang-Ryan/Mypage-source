@@ -50,7 +50,7 @@ const noteStore = useNoteStore()
     article {
       padding: 5px 20px;
       border-radius: 10px;
-      background-color: rgb(255, 241, 222);
+      background-color: rgba(255, 241, 222, 0.2);
 
       display: flex;
       flex-direction: column;
