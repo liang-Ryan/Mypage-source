@@ -7,7 +7,7 @@ defineProps({
 <template>
   <aside>
     <div class="return" @click="$router.push('/')"><div class="return-button">返回首页</div></div>
-    <div class="aside-content">
+    <div class="aside-content" ref="asideRef">
       <a class="aside-item" v-for="(item, key) in titlelist" :key="key" :href="'#' + key">
         {{ key }}
       </a>
@@ -22,9 +22,6 @@ aside {
   display: flex;
   flex-direction: column;
   gap: 10px;
-
-  position: sticky;
-  left: 0;
 
   .return {
     height: 30px;
@@ -61,6 +58,9 @@ aside {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    position: sticky;
+    top: 40px;
 
     .aside-item {
       height: 30px;
