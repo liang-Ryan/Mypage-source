@@ -23,14 +23,14 @@ const changeUrl = (url) => {
 <template>
   <header></header>
   <div class="home-page-content">
-    <div class="home-item">
-      <div class="home-item-header">个人笔记</div>
+    <div class="home-item" v-for="(noteList, notekey) in noteStore.noteList" :key="notekey">
+      <div class="home-item-header">{{ notekey }}</div>
       <div class="home-item-content">
         <div
           class="content-item"
-          v-for="(item, key) in noteStore.noteList"
+          v-for="(note, key) in noteList"
           :key="key"
-          @click="$router.push(`/note/${key}`)"
+          @click="$router.push(`/note?book=${notekey}&note=${key}`)"
         >
           <span>{{ key }}</span>
         </div>

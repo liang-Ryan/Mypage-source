@@ -6,7 +6,8 @@ import { ref } from 'vue'
 // =============================
 
 defineProps({
-  notelist: Object
+  notelist: Object,
+  notekey: String
 })
 
 // =============================
@@ -25,10 +26,10 @@ const scrollEvent = (deltaY) => {
   <div ref="navContent" class="nav-content" @wheel.prevent="scrollEvent($event.deltaY)">
     <div
       class="nav-item"
-      :class="{ active: $route.path === `/note/${key}` }"
+      :class="{ active: $route.query.note === key }"
       v-for="(item, key) in notelist"
       :key="key"
-      @click="$router.push(`/note/${key}`)"
+      @click="$router.push(`/note?book=${notekey}&note=${key}`)"
     >
       {{ key }}
     </div>

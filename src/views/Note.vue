@@ -1,5 +1,7 @@
 <script setup>
+import { computed } from 'vue'
 import { useNoteStore } from '@/stores'
+import { useRoute } from 'vue-router'
 
 // =============================
 // store
@@ -8,24 +10,32 @@ import { useNoteStore } from '@/stores'
 const noteStore = useNoteStore()
 
 // =============================
+// computed
+// =============================
+
+const route = useRoute()
+
+const book = computed(() => {
+  return noteStore.noteList[route.query.book]
+})
+
+const note = computed(() => {
+  return noteStore.noteList[route.query.book][route.query.note]
+})
+
+// =============================
 </script>
 
 <template>
   <header></header>
 
   <div class="note-contain">
-    <Aside :titlelist="noteStore.noteList[$route.params.id]"></Aside>
+    <Aside :titlelist="note"></Aside>
 
     <div class="note-article">
-      <Nav :notelist="noteStore.noteList"></Nav>
+      <Nav :notelist="book" :notekey="$route.query.book"></Nav>
       <article>
-        <Paragraph
-          v-for="(item, key) in noteStore.noteList[$route.params.id]"
-          :key="key"
-          :title="key"
-          :content="item"
-        >
-        </Paragraph>
+        <Paragraph v-for="(item, key) in note" :key="key" :title="key" :content="item"> </Paragraph>
       </article>
     </div>
   </div>
