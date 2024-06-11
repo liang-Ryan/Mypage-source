@@ -1,15 +1,28 @@
 <script setup>
 defineProps({
-  cell: Object
+  cell: [String, Object]
 })
+
+// =============================
+// 表格判断
+// =============================
+
+const isTable = (cell) => {
+  for (let i = 0; i < cell.length; i++) {
+    if (typeof cell[i] === 'string') {
+      return false
+    }
+  }
+  return true
+}
+
+// =============================
 </script>
 
 <template>
-  <!-- 单元格 渲染 正文/表格 判断 -->
-  <div v-for="item in cell" :key="item">
-    <span v-if="typeof item === 'string'" v-html="item"></span>
-    <Tables v-else :content="item"></Tables>
-  </div>
+  <span v-if="typeof cell === 'string'" v-html="cell"></span>
+  <Tables v-else-if="isTable(cell)" :content="cell"></Tables>
+  <Cell v-else v-for="item in cell" :key="item" :cell="item"></Cell>
 </template>
 
 <style scoped></style>

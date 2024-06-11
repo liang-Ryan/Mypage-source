@@ -27,12 +27,10 @@ const note = computed(() => {
 </script>
 
 <template>
-  <header></header>
-
-  <div class="note-contain">
+  <div class="main-contain">
     <Aside :titlelist="note"></Aside>
 
-    <div class="note-article">
+    <div class="note-contain">
       <Nav :notelist="book" :notekey="$route.query.book"></Nav>
       <article>
         <Paragraph v-for="(item, key) in note" :key="key" :title="key" :content="item"> </Paragraph>
@@ -42,12 +40,12 @@ const note = computed(() => {
 </template>
 
 <style lang="less" scoped>
-.note-contain {
+.main-contain {
   padding: 30px 10px;
   display: flex;
   gap: 10px;
 
-  .note-article {
+  .note-contain {
     width: 100%;
 
     display: flex;
@@ -64,6 +62,7 @@ const note = computed(() => {
 
       display: flex;
       flex-direction: column;
+      gap: 20px;
     }
   }
 }

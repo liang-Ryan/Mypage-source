@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 // =============================
-// state
+// props
 // =============================
 
 defineProps({
@@ -23,7 +23,7 @@ const scrollEvent = (deltaY) => {
 </script>
 
 <template>
-  <div ref="navContent" class="nav-content" @wheel.prevent="scrollEvent($event.deltaY)">
+  <nav ref="navContent" class="nav-content" @wheel.prevent="scrollEvent($event.deltaY)">
     <div
       class="nav-item"
       :class="{ active: $route.query.note === key }"
@@ -33,7 +33,7 @@ const scrollEvent = (deltaY) => {
     >
       {{ key }}
     </div>
-  </div>
+  </nav>
 </template>
 
 <style lang="less" scoped>

@@ -1,35 +1,78 @@
 <script setup>
-defineProps({
+import { computed } from 'vue'
+
+// =============================
+// props
+// =============================
+
+const porps = defineProps({
   title: String,
   subtitle: String,
   content: Object
 })
+
+// =============================
+// computed
+// =============================
+
+const isSubtitle = computed(() => {
+  const temp = {}
+  for (let key in porps.content) {
+    if (isNaN(+key)) {
+      temp[key] = porps.content[key]
+    }
+  }
+  return temp
+})
+
+const notSubtitle = computed(() => {
+  const temp = {}
+  for (let key in porps.content) {
+    if (!isNaN(+key)) {
+      temp[key] = porps.content[key]
+    }
+  }
+
+  if (Object.keys(temp).length > 0) {
+    return temp
+  }
+  return ''
+})
+
+// =============================
 </script>
 
 <template>
-  <!-- 标题 -->
-  <h1 class="title" :id="title" v-if="title">{{ title }}</h1>
-  <h2 class="subtitle" :id="subtitle" v-if="typeof subtitle === 'string'">{{ subtitle }}</h2>
+  <div>
+    <!-- 标题 -->
+    <h1 class="title" :id="title" v-if="title">{{ title }}</h1>
+    <h2 class="subtitle" :id="subtitle" v-if="subtitle">{{ subtitle }}</h2>
 
-  <!-- 正文 -->
-  <div v-for="(item, key) in content" :key="key">
-    <div class="content" v-if="typeof key === 'number'">
-      <span v-if="typeof item === 'string'" v-html="item"></span>
-      <Tables v-else :content="item"></Tables>
+    <!-- 渲染子级标题内容 -->
+    <Paragraph
+      v-for="(item, key) in isSubtitle"
+      :key="key"
+      :subtitle="key"
+      :content="item"
+    ></Paragraph>
+
+    <!-- 正文 -->
+    <div v-if="notSubtitle" class="content">
+      <Cell v-for="item in notSubtitle" :key="item" :cell="item"></Cell>
     </div>
-    <Paragraph v-else :subtitle="key" :content="item"></Paragraph>
   </div>
 </template>
 
 <style lang="less" scoped>
 .title {
   font-size: 20px;
-  border-bottom: 1px black solid;
+  margin-bottom: 30px;
+  border-bottom: 1px white solid;
 }
 
 .subtitle {
   font-size: 16px;
-  margin-bottom: 10px;
+  margin: 30px 0 10px;
 }
 
 .content {
