@@ -23,7 +23,7 @@ const scrollEvent = (deltaY) => {
 </script>
 
 <template>
-  <nav ref="navContent" class="nav-content" @wheel.prevent="scrollEvent($event.deltaY)">
+  <nav ref="navContent" @wheel.prevent="scrollEvent($event.deltaY)">
     <div
       class="nav-item"
       :class="{ active: $route.query.note === key }"
@@ -37,7 +37,7 @@ const scrollEvent = (deltaY) => {
 </template>
 
 <style lang="less" scoped>
-.nav-content {
+nav {
   height: 30px;
   padding: 0 5px;
   border-radius: 10px;

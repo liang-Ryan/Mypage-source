@@ -43,7 +43,7 @@ const notSubtitle = computed(() => {
 </script>
 
 <template>
-  <div>
+  <section>
     <!-- 标题 -->
     <h1 class="title" :id="title" v-if="title">{{ title }}</h1>
     <h2 class="subtitle" :id="subtitle" v-if="subtitle">{{ subtitle }}</h2>
@@ -60,22 +60,21 @@ const notSubtitle = computed(() => {
     <div v-if="notSubtitle" class="content">
       <Cell v-for="item in notSubtitle" :key="item" :cell="item"></Cell>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="less" scoped>
 .title {
   font-size: 20px;
-  margin-bottom: 30px;
   border-bottom: 1px white solid;
 }
 
 .subtitle {
   font-size: 16px;
-  margin: 30px 0 10px;
 }
 
 .content {
   font-size: 14px;
+  padding-bottom: 20px;
 }
 </style>

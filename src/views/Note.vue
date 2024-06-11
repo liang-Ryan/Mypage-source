@@ -27,25 +27,25 @@ const note = computed(() => {
 </script>
 
 <template>
-  <div class="main-contain">
+  <div class="main-body">
     <Aside :titlelist="note"></Aside>
 
-    <div class="note-contain">
+    <div class="main-content">
       <Nav :notelist="book" :notekey="$route.query.book"></Nav>
       <article>
-        <Paragraph v-for="(item, key) in note" :key="key" :title="key" :content="item"> </Paragraph>
+        <Paragraph v-for="(item, key) in note" :key="key" :title="key" :content="item"></Paragraph>
       </article>
     </div>
   </div>
 </template>
 
 <style lang="less" scoped>
-.main-contain {
+.main-body {
   padding: 30px 10px;
   display: flex;
   gap: 10px;
 
-  .note-contain {
+  .main-content {
     width: 100%;
 
     display: flex;
@@ -62,7 +62,6 @@ const note = computed(() => {
 
       display: flex;
       flex-direction: column;
-      gap: 20px;
     }
   }
 }

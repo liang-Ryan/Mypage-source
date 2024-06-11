@@ -8,7 +8,7 @@ defineProps({
   <aside>
     <div class="return" @click="$router.push('/')"><div class="return-button">返回首页</div></div>
     <div class="aside-content" ref="asideRef">
-      <a class="aside-item" v-for="(item, key) in titlelist" :key="key" :href="'#' + key">
+      <a class="aside-content-item" v-for="(item, key) in titlelist" :key="key" :href="'#' + key">
         {{ key }}
       </a>
     </div>
@@ -32,7 +32,7 @@ aside {
     display: flex;
     align-items: center;
 
-    > .return-button {
+    .return-button {
       width: 100%;
       border-radius: 5px;
       background-color: rgba(4, 0, 255, 0.38);
@@ -62,7 +62,7 @@ aside {
     position: sticky;
     top: 40px;
 
-    .aside-item {
+    .aside-content-item {
       height: 30px;
       border-radius: 5px;
       background-color: rgb(10, 86, 153);
