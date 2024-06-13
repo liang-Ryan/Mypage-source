@@ -1,16 +1,37 @@
 <script setup>
-defineProps({
+// import { computed } from 'vue'
+
+const props = defineProps({
   titlelist: Object
 })
+
+const isSubtitle = (content) => {
+  const temp = {}
+  for (let key in content) {
+    if (isNaN(+key)) {
+      temp[key] = content[key]
+    }
+  }
+  return temp
+}
 </script>
 
 <template>
   <aside>
     <div class="return" @click="$router.push('/')"><div class="return-button">返回首页</div></div>
     <div class="aside-content" ref="asideRef">
-      <a class="aside-content-item" v-for="(item, key) in titlelist" :key="key" :href="'#' + key">
-        {{ key }}
-      </a>
+      <div class="aside-title" v-for="(item, key) in titlelist" :key="key">
+        <a class="aside-content-item" :href="'#' + key">
+          {{ key }}
+        </a>
+        <a
+          class="aside-content-item-sub"
+          v-for="(subitem, subkey) in isSubtitle(item)"
+          :key="subkey"
+          :href="'#' + subkey"
+          >{{ subkey }}</a
+        >
+      </div>
     </div>
   </aside>
 </template>
@@ -62,21 +83,48 @@ aside {
     position: sticky;
     top: 40px;
 
-    .aside-content-item {
-      height: 30px;
-      border-radius: 5px;
-      background-color: rgb(10, 86, 153);
-
+    .aside-title {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      gap: 10px;
 
-      text-decoration: none;
+      .aside-content-item {
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+        background-color: rgb(10, 86, 153);
 
-      cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-      &:hover {
-        box-shadow: 0px 0px 10px 1px gray inset;
+        text-decoration: none;
+
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: 0px 0px 10px 1px gray inset;
+        }
+      }
+
+      .aside-content-item-sub {
+        width: 70%;
+        height: 30px;
+        border-radius: 5px;
+        background-color: rgb(10, 86, 153);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-decoration: none;
+
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: 0px 0px 10px 1px gray inset;
+        }
       }
     }
   }

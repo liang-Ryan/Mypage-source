@@ -5,7 +5,7 @@ import { computed } from 'vue'
 // props
 // =============================
 
-const porps = defineProps({
+const props = defineProps({
   title: String,
   subtitle: String,
   content: Object
@@ -17,9 +17,9 @@ const porps = defineProps({
 
 const isSubtitle = computed(() => {
   const temp = {}
-  for (let key in porps.content) {
+  for (let key in props.content) {
     if (isNaN(+key)) {
-      temp[key] = porps.content[key]
+      temp[key] = props.content[key]
     }
   }
   return temp
@@ -27,9 +27,9 @@ const isSubtitle = computed(() => {
 
 const notSubtitle = computed(() => {
   const temp = {}
-  for (let key in porps.content) {
+  for (let key in props.content) {
     if (!isNaN(+key)) {
-      temp[key] = porps.content[key]
+      temp[key] = props.content[key]
     }
   }
 
