@@ -1,10 +1,9 @@
 <script setup>
-// import { computed } from 'vue'
-
-const props = defineProps({
+defineProps({
   titlelist: Object
 })
 
+// 筛选副标题
 const isSubtitle = (content) => {
   const temp = {}
   for (let key in content) {
